@@ -1,0 +1,10 @@
+API Gateway:-
+
+used for Route Routing
+used for Load Balancing
+used for Security
+
+Development steps:-
+- create api-gateway project
+- add eureka client property in application.properties in api-gateway
+- add router in application.properties in api-gateway

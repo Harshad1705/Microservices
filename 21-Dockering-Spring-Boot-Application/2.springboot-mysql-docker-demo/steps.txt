@@ -1,0 +1,75 @@
+PULL and RUN MYSQL Image in DOCKER
+
+- docker pull mysql
+
+- docker images
+
+- docker network create springboot-mysql-network
+    - create network so that our springboot container communicate with mysql container
+- docker network ls
+
+- docker run --name mysql --network springboot-mysql-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=employeedb -d mysql
+    - --name means container name
+    - --network used to provide network name
+    - -e used to provide enovironment variables
+    - -d to run docker image in detached mode
+    - mysql - docker image name
+
+- docker ps
+
+- docker logs -f (container id)
+
+- docker exec -it (container id) bash
+    - used to access mysql database in docker container
+
+- mysql -u root -p
+    root
+
+- show databases;
+
+
+
+CREATE A DOCKERFILE TO BUILD IMAGE
+
+- clean and package the application
+
+- create docker file
+
+- cofingure spring boot application as per docker image
+    - create in application-docker.properties file
+
+- active docker profile
+    - add profile property in application.properties file
+
+- clean and package the application
+
+- docker build -t springboot-restfull-webservice .
+
+- docker images
+
+- docker ps
+
+- docker run --network springboot-mysql-network --name springboot-mysql-container -p 8080:8080 springboot-retfull-webservices
+    -- network define network name get this from docker network ls command
+    -- name give name to container
+    -p post mapping 
+
+- docker run --network springboot-mysql-network --name sb-mysql-container -p 8080:8080 -d springboot-retfull-webservices
+    - run in detached mode
+
+- docker logs -f ff81
+
+- hit api http://localhost:8080/api/users
+
+- docker exec -it mysql bash
+
+- mysql -u root -p
+    root
+
+- show databases;
+
+- use employeedb;
+
+- show tables;
+
+- select * from users;

@@ -1,0 +1,7 @@
+extract main project 
+add packaging value pom in pom.xml
+create a new module named :- kafka producer wikimedia
+add packaging value jar in pom.xml
+define producer properties in application.properties
+create kafka topic
+create kafka producer

@@ -1,0 +1,28 @@
+Circuit Breaker development steps:-
+- add resilience4j, actuator and aop dependency in employee-service
+- in serviceImpl class instead of calling apiCLient , now use WebClient to call microservice
+- add @@CircuitBreaker to getEmployeeById() in serviceImpl class
+- implement getDefaultDepartment() in serviceImpl class
+- add properties in application.properties in employee-service
+- run api > http://localhost:9191/employee-service/api/employees/5
+- run api > http://localhost:8081/actuator/health  - point to state is closed
+- stop department-service
+- run api 5 times > http://localhost:9191/employee-service/api/employees/5
+- run api > http://localhost:8081/actuator/health  - point to state is Half_opened
+- run api 3 times > http://localhost:9191/employee-service/api/employees/5
+- run api > http://localhost:8081/actuator/health  - point to state is Open
+
+- start department-service
+- run api 3 times > http://localhost:9191/employee-service/api/employees/5
+- run api > http://localhost:8081/actuator/health  - point to state is Closed
+
+
+Retry Pattern implementation steps :-
+- use @Retry instead of @CircuitBreaker in serviceImpl class of employee-service
+- add retry properties in application.properties in employee-service
+- add logger in getEmployeeById() and getDefaultDepatment() in serviceImpl class
+
+- run api > http://localhost:9191/employee-service/api/employees/5  - works properly
+- stop department-service
+- run api > http://localhost:9191/employee-service/api/employees/5  - getting default values
+- check logs of employee-service

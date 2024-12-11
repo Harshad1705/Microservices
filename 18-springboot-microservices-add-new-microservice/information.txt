@@ -1,0 +1,28 @@
+Add New Microservice named organization-service :-
+
+- create new spring boot project 
+- add mysql properties in application.properties
+- create entity class and repository interface
+- create dto class and mapper class
+- create service interface, service impl class and controller class
+- make rest call from employee-service to organization-service
+    - add organizationCode in Employee entity and Employee dto
+    - create Organization DTO class in employee-service
+    - changes in APIResponseDto in employee-service
+    - add rest call from employee to organization
+- add organization-service as eureka client
+    - add eureka client dependency
+    - add eureka server property in application.properties
+- refactor organization-server to use config-server
+    - add config server dependency
+    - create new file in github config-server repository named
+            organization-service.properties
+    - add config server property in application.properties
+- configure spring cloud bus and routes
+    - add spring cloud bus dependency
+    - add spring cloud bus property in application.properties 
+    - add actuator property in application.properties 
+    - add routes in application.properties of api-gateway
+- implement distributed tracing
+    - add distributed tracing dependency
+    - add zipkin property in application.properties

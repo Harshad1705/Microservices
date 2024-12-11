@@ -1,0 +1,7 @@
+Distributed Tracing using Sleuth development steps:-
+- add dependency to api-gateway , department-service and employee-service
+- add propertt in application.properties to api-gateway , department-service and employee-service
+- run command > docker run -d -p 9411:9411 openzipkin/zipkin
+- run api > http://localhost:9411
+- run api > http://localhost:9191/employee-service/api/employees/5
+- run api > http://localhost:9411

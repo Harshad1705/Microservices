@@ -1,0 +1,35 @@
+Docker compose is used to deploy multiple images in a multiple container by single command.
+
+
+create docker-compose.yml file
+add commands in it
+
+remove all the docker images
+
+docker images
+docker remove (image_id)
+
+Add mysql service in yml - 
+
+docker-compose up
+
+docker-compose up -d
+
+docker logs -f mysql
+
+docker-compose down
+
+
+Add springboot-restful-sebservice service in yml - 
+
+delete all runnimg container
+
+docker ps
+
+docker remove -f (container_id)
+
+docker-compose up -d --build
+
+docker ps
+
+docker logs -f springboot-restful-webservices

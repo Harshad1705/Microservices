@@ -1,0 +1,15 @@
+React Frontend :-
+
+- npx create-react-app react-frontend
+- cd react-frontend
+- npm start
+
+- npm i bootstrap --save
+- add bootstrap.min.css in index.js
+
+- npm i axios --save
+- create EmployeeService.js file
+
+- create EmployeeComponent.js file
+- add cors configuration in application.properties file of api-gateway
+

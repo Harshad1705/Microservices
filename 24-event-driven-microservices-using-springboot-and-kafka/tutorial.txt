@@ -1,0 +1,11 @@
+Event Driven Architecture :-
+
+- In event driven architecture , decoupled application communicate with each other by sending or recieving messages or events.
+- Event driven architecture alse referred as "Asynchronous" communication.
+- An event driven architecture is loosely coupled.
+
+Advantages :-
+
+- Improves flexibility and maintainability
+- High scalability
+- Improves availability

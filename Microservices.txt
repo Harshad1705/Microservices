@@ -1,0 +1,8 @@
+Microservices architecture enable large teams to build scalable applications that composed of loosely coupled services
+Each Microservices can have their own database
+Each Microservices can expose the REST APIs
+Each Microservices is loosely coupled
+Each Microservices should be developed independently
+Each Microservices should be deployed independently
+Each Microservices should be scaled independently
+

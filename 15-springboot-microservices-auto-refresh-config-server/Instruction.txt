@@ -1,0 +1,19 @@
+Problem with Config Server :-
+- when there is change in properties file in github then we have to run the /refresh actuator of that service . If we have number of services then for all the services if there properties are changes in github , we need to call /refresh actuator.
+
+Auto Refresh Config Server development steps :-
+- add spring-cloud-starter-bus-amqp dependecy to department-service and employee-service
+- go to dockerhub
+- search rabbitMq
+- run command in cmd > docker pull rabbitmq
+                     > docker run --rm -it -p 5672:5672 rabbitmq:latest
+- add rabbitmq properties in application.properties file in department-service and employee-service
+- add MessageController in employee-service
+- add spring.boot.message property in github employee-service.properties
+- run apis > http://localhost:8081/api/message
+           > http://localhost:8080/api/message
+- changes properties in github of department-service.properties and employee-service.properties
+- run > http://localhost:8080/actuator/busrefresh
+- run apis > http://localhost:8081/api/message
+           > http://localhost:8080/api/message
+

@@ -1,0 +1,29 @@
+Config Server Advantage:-
+- when we change the configurarion file then we do not need to restart the microservice and its instances
+- we can externalize all the configuration file in a central repository like git
+
+Development steps:-
+- create spring boot project named config-server
+- add eureka client property in application.properties of config-server
+- add @EnabaleConfigServer to ConfigServerApplication class
+- add config server git repo property to application.properties
+
+- add config client and actuator dependency in department-service
+- create department-service.properties in github and copy the application.properties of department-service into it
+- comment all the code in application.properties expect its name
+- add config server property in application.properties
+
+- add config client and actuator dependency in employee-service
+- create employee-service.properties in github and copy the application.properties of employee-service into it
+- comment all the code in application.properties expect its name
+- add config server property in application.properties
+
+
+Refresh Use Case:-
+- create MessageController in department-service
+- add spring.boot.message property in github in department-service.properties
+- add property in application.properties of department-service
+- run http://localhost:8080/api/message in get in postman
+- edit spring.boot.message property in github in department-service.properties
+- run http://localhost:8080/actuator/refresh in post in postman 
+- run again http://localhost:8080/api/message in get in postman

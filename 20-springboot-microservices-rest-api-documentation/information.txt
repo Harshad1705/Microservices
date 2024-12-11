@@ -1,0 +1,6 @@
+API Documentation :-
+
+- add spring doc openapi dependency
+- add @OpenAPIDefinition in main class
+- add open api annotations in controller class
+- add open api annotations in dto class

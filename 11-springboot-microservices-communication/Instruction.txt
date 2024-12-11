@@ -1,0 +1,22 @@
+3 different ways to communication in microrservices :-
+- RestTemplate
+- WebClient
+- Spring Cloud OpenFeign
+
+RestTemplate development steps:-
+- change in employee entity
+- add DepartmentDto and APIResponseDto in employee service
+- add RestTemplate bean in EmployeeServiceApplication class
+- use rest template in Employee service class to get Department details
+- change method return type in service and controller class
+
+WebClient development steps:-
+- add webflux dependency
+- add web client bean in EmployeeServiceApplication class
+- use web client bean into service class
+	
+OpenFeign development steps:-
+- add openfiegn dependency
+- add @EnableFeignClients to EmployeeServiceApplication class
+- create APIClient interface in service package
+- use APIclient in service class

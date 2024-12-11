@@ -1,0 +1,55 @@
+General Docker Workflow
+- Create Docker File
+- Build Docker file to get Docker Image
+- Run it on Container
+- Push to Docker Hub
+
+
+- Docker image is an executible package and we run it in Docker Container.
+- Docker Container is an running instance of Docker Image.
+
+
+Steps :-
+
+- Create a spring boot application
+
+- Clean and build the application
+
+- Create docker file
+
+- Build the docker file 
+    - docker build -t springboot-docker-demo:0.1.RELEASE ./springboot-docker-demo
+        -t means name of image
+        -./springboot-docker-demo defines location where dockerfile present
+    - docker images
+
+- Run the docker image
+    - docker run -p 8080:8080 springboot-docker-demo
+        - -p 8080:8080 define port first for host operating system and second for container
+        - springboot-docker-demo is image name
+        - hit http://localhost:8080/docker , it works
+    - docker ps 
+        - shows docker container means runing docker images 
+    - docker ps -a 
+        - shows all the container present or previous 
+    - docker run -p 8081:8080 springboot-docker-demo
+        - hit http://localhost:8080/docker , it didn't works
+
+- Run a docker container in background means detached mode
+    - docker run -p 8081:8080 -d springboot-docker-demo
+        - hit http://localhost:8081/docker , it works
+    - docker logs -f efb8
+        - efb8 is first four digit of given id that we got after running docker image in detached mode
+    - docker ps
+    - docker stop efb8
+    - docker ps 
+
+- Push docker image to dockerhub
+    - docker login
+    - docker tag springboot-docker-demo harshad1705/springboot-docker-demo:0.1.RELEASE
+        - springboot-docker-demo - local docker image name
+        - harshad1705/springboot-docker-demo:0.1.RELEASE name that will reflect on docker Hub
+    - docker images
+    - docker push harshad1705/springboot-docker-demo:0.1.RELEASE
+    
+- Pull docker image from dockerhub

@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  # - docker run --name mysql --network springboot-mysql-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=employeedb -d mysql
+  mysqldb:
+    container_name: mysql
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: employeedb
+    networks:
+      springboot-mysql-network:
+
+  springboot-restful-webservices:
+    container_name: springboot-restful-webservices
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      springboot-mysql-network:
+    restart: on-failure
+
+networks:
+  springboot-mysql-network:

@@ -1,0 +1,21 @@
+Service Registry and Discovery development steps:-
+
+- create a new project named service-registry having eureka server dependency 
+- add @EnableEurekaServer to ServiceRegistryApplication class
+- add eureka properties in application.properties file
+
+- add eureka discovery client dependency to department-service
+- add eureka client property into application.properties file in department-service
+
+- add eureka discovery client dependency to employee-service
+- add eureka client property into application.properties file in employee-service
+
+
+Running multiple instance of department-service :- 
+- create jar file using maven>lifecycle>package
+- run command - cd department-service
+- run command - java -jar -Dserver.port=8082 target/department-service-0.0.1-SNAPSHOT.jar
+
+
+Implenting load balancer:-
+- change in APICient in employee-service
